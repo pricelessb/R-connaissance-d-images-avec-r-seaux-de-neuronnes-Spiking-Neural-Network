@@ -8,7 +8,7 @@ from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
 import time
 
-# Definition de la transformation ? appliquer sur les images d'entr?e avec
+# Definition de la transformation à appliquer sur les images d'entrée avec
 # Pytorch torchvision.transforms
 transform = transforms.Compose([
     transforms.ToTensor(),  # Transforme l'image en un tenseur PyTorch
@@ -110,7 +110,7 @@ for epoch in range(10):
 # Test du mod?le
 correct = 0
 total = 0
-model.eval()  # D?sactivation du dropout et BatchNorm
+model.eval()  # Desactivation du dropout et BatchNorm
 
 with torch.no_grad():
     for donnees in chargeur_test:
@@ -121,7 +121,7 @@ with torch.no_grad():
         _, predicted = torch.max(sorties.data, 1)  # Etiquette pr?dite
         total += etiquettes.size(0)  # Compte le nombre total d'images test?es
         correct += (predicted == etiquettes).sum().item()  # Compte le nombre
-        # d'images correctement cat?goris?es
+        # d'images correctement categorisees
 print(f'Precision du r?seau sur les 10000 images de test : '
       f'{100 * correct / total:.2f} %')
 fin = time.time()
